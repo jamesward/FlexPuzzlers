@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+  
+  <mx:applicationComplete>
+  <![CDATA[
+     var i:int;
+     for (i = 0; i < 2; ++i)
+     {
+       var blah:Object;
+       trace("blah = " + blah);
+       blah = i;
+     }
+  ]]>
+  </mx:applicationComplete>
+  
+  <!--
+  
+       What is the output for the following code:
+       var i:int;
+       for (i = 0; i < 2; ++i)
+       {
+         var blah:Object;
+         trace("blah = " + blah);
+         blah = i;
+       }
+
+       A)
+       blah = null
+       blah = 1
+
+       B)
+       blah = null
+       blah = 0
+
+       C)
+       blah = null
+       blah = null
+
+       D) Runtime error
+
+
+       Answer: B
+       Reason: What's going on here is that the scope of these variables (like all variables in ActionScript) is at the level of the function. That's right: even though the variable is declared inside the for() loop, they are scoped to the overall function. There are various implications and consequences that come from this scoping rule, but the specific one we're dealing with here is that that scope is also the place where the variable receives its implicit assignment. So in the case of the first example above, blah is assigned the default value of null just once. When we come around to the variable declaration again, it does not get a second implicit assignment, because it's as if the variable were declared at the top of the function, since that's its scope.
+       
+       Author: Chet Haase http://graphics-geek.blogspot.com
+  -->
+  
+</mx:Application>

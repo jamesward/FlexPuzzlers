@@ -9,9 +9,9 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="FlexPuzzlers.mxml"/>
     <application path="SyncronousEvents.mxml"/>
     <application path="CastArray.mxml"/>
+    <application path="FunctionScope.mxml"/>
   </applications>
   <modules/>
   <buildCSSFiles/>
