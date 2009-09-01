@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:applicationComplete>
+    var a:Array = ['a', 'b', 'c'];
+    
+    trace(Array(a)[0]);
+  </mx:applicationComplete>
+
+  <!--
+       What is the output for the following code:
+       
+       var a:Array = ['a', 'b', 'c'];
+       trace(Array(a)[0]);
+
+       A)
+       a
+
+       B)
+       a,b,c
+
+       C) Runtime error
+
+       D) Compile error
+
+       
+       Answer: B
+       Reason: Casting an object to an Array (when not using the "as" operator) a new Array is created with the first element being the Array that was "casted".
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</mx:Application>

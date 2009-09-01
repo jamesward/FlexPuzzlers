@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:applicationComplete>
+    addEventListener('blah', function(event:Event):void {
+      trace('event foo');
+    });
+    dispatchEvent(new Event('blah'));
+    trace('foo');
+  </mx:applicationComplete>
+
+  <!--
+       What is the output for the following code:
+       addEventListener('blah', function(event:Event):void {
+         trace('event foo');
+       });
+       dispatchEvent(new Event('blah'));
+       trace('foo');
+
+       A)
+       foo
+
+       B)
+       event foo
+       foo
+
+       C)
+       foo
+       event foo
+
+       D) Code doesn't compile
+
+
+       Answer: B
+       Reason: Non-player generated events are syncronous
+       
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</mx:Application>
