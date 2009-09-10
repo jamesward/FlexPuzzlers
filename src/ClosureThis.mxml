@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:applicationComplete>
+    var f:Function = function(that:Object):void
+    {
+      trace(this === that);
+    }
+    f(this);
+  </mx:applicationComplete>
+
+  <!--
+       What is the output for the following code:
+
+       var f:Function = function(that:Object):void
+       {
+       trace(this === that);
+       }
+       f(this);
+
+       A)
+       true
+
+       B)
+       false
+
+       C) Runtime error
+
+       D) Compile error
+
+
+       Answer: B
+       Reason: Annonymous functions aren't in the same scope at a function on a class.  You can use Function.call() or Function.apply() to overwrite the "this" within a function call.
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</mx:Application>

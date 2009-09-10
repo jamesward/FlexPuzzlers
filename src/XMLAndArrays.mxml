@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:HTTPService id="srv" url="data.xml"/>
+
+  <mx:Label text="# items = {srv.lastResult.item.length}" creationComplete="srv.send()"/>
+
+
+  <!--
+       Given the following data.xml file:
+       <item label="Item 1"/>
+       <item label="Item 2"/>
+
+       And given the following Flex code:
+       <mx:HTTPService id="srv" url="data.xml"/>
+
+       <mx:Label text="# items = {srv.lastResult.item.length}" creationComplete="srv.send()"/>
+
+       The Label displays "# items = 2".  What does the Label display when only one item is in the XML data?
+
+       A) # items = undefined
+
+       B) # items = 1
+
+       C) There is a runtime error.
+
+       D) The code does not compile.
+
+
+       Answer: A
+       Reason: By default XML is only converted to Arrays when there is more than one repeated node.  Otherwise the item is just an Object.
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</mx:Application>

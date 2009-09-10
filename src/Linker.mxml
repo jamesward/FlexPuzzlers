@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:applicationComplete>
+    var c:Class = loaderInfo.applicationDomain.getDefinition("Foo") as Class;
+    var foo:IFoo =  new c();
+  </mx:applicationComplete>
+
+  <!--
+       Given this interface:
+       package
+       {
+       public interface IFoo
+       {
+       }
+       Foo;
+       }
+
+       And given this class:
+       package
+       {
+       public class Foo implements IFoo
+       {
+       }
+       }
+
+       Without using any special compiler parameters what happens when the following code is run:
+       var c:Class = loaderInfo.applicationDomain.getDefinition("Foo") as Class;
+       var foo:IFoo =  new c();
+
+
+       A) The first line throws a ReferenceError because the class Foo has not been linked in.
+
+       B) The second line throws an error because the class Foo has not been linked in.
+
+       C) The var foo gets created as an instance of type Foo.
+
+       D) The code doesn't compile
+
+
+       Answer: C
+       Reason: Specifying a Class at the package level causes that class to be linked into the final SWF file.  In this case Foo is specified in IFoo's package block.
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</mx:Application>

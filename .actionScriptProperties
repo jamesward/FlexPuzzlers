@@ -9,7 +9,11 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
+    <application path="SameBinding.mxml"/>
     <application path="SyncronousEvents.mxml"/>
+    <application path="ClosureThis.mxml"/>
+    <application path="Linker.mxml"/>
+    <application path="XMLAndArrays.mxml"/>
     <application path="CastArray.mxml"/>
     <application path="FunctionScope.mxml"/>
   </applications>

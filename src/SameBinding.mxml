@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:Script>
+    import mx.binding.utils.ChangeWatcher;
+  </mx:Script>
+
+  <mx:applicationComplete>
+    ChangeWatcher.watch(this, "foo", function(event:Event):void {
+      trace('foo changed');
+    });
+  
+    foo = "blah";
+    foo = "blah";
+  </mx:applicationComplete>
+
+  <mx:String id="foo"/>
+
+
+  <!--
+       Given a class with a Bindable property named "foo", what is the output of this code:
+       ChangeWatcher.watch(this, "foo", function(event:Event):void {
+       trace('foo changed');
+       });
+
+       foo = "blah";
+       foo = "blah";
+
+
+       A)
+       foo changed
+       foo changed
+
+       B)
+       foo changed
+       foo changed
+       foo changed
+
+       C)
+       foo changed
+
+       D) Runtime error
+
+
+       Answer: C
+       Reason: Binding doesn't trigger if the new value is the same as the old value.
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</mx:Application>
