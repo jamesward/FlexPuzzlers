@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:Script>
+    public function speak(anything:Object):void {
+      trace(anything.talk());
+    }
+  </mx:Script>
+
+  <mx:applicationComplete>
+    speak(new Dog());
+    speak(new Robot());
+  </mx:applicationComplete>
+
+  <!--
+       Given the following classes:
+
+       public class Dog {
+       public function talk():String {
+       return "Arf!";
+       }
+       public function reproduce():Vector<Dog> {
+       ...
+       }
+       }
+
+       public class Robot {
+       public function talk():String {
+       return "Click!";
+       }
+       public function oilChange():void {
+
+       }
+       }
+
+       public function speak(anything:Object):void {
+       trace(anything.talk());
+       }
+
+
+       What is the output from this code:
+       speak(new Dog());
+       speak(new Robot());
+
+       A)
+       Arf!
+       Click!
+
+       B)
+       null
+       null
+
+       C) Runtime error
+
+       D) Compile error
+
+
+       Answer: A
+       Reason: ActionScript supports structural typing (duck typing in the common vernacular).
+
+       Author: Bruce Eckel (www.mindviewinc.com)
+  -->
+
+</mx:Application>

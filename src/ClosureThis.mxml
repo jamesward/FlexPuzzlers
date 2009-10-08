@@ -30,7 +30,7 @@
 
 
        Answer: B
-       Reason: Annonymous functions aren't in the same scope at a function on a class.  You can use Function.call() or Function.apply() to overwrite the "this" within a function call.
+       Reason: Annonymous functions aren't in the same scope as a function on a class.  You can use Function.call() or Function.apply() to overwrite the "this" within a function call.
 
        Author: James Ward (www.jamesward.com)
   -->

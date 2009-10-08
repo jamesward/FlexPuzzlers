@@ -24,9 +24,10 @@
        }
        }
 
-       Without using any special compiler parameters what happens when the following code is run:
+       Without using any special compiler parameters what happens when the following code
+       is run:
        var c:Class = loaderInfo.applicationDomain.getDefinition("Foo") as Class;
-       var foo:IFoo =  new c();
+       var foo:IFoo = new c();
 
 
        A) The first line throws a ReferenceError because the class Foo has not been linked in.

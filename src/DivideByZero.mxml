@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+  <mx:applicationComplete>
+    var a:Number = 0;
+    var b:Number = 5;
+    var c:Number = b / a;
+    var d:int = b / a;
+    trace("c = " + c);
+    trace("d = " + d);
+  </mx:applicationComplete>
+
+  <!--
+       
+
+       A)
+
+
+       B)
+
+
+       C)
+       c = Infinity
+       d = 0
+
+
+       Answer: C
+       Reason:
+        - anything / 0 doesn’t throw an error. This is a pretty serious code screwup, and it’s nice to know when it happens. But instead of throwing an error, it just sets the result to Infinity, at least if you’re storing it in a Number.
+        - storing the result of x/0 in an int results in 0. So basically, casting Infinity to an int gives you zero. This is actually where my bug was, because I was storing the result of an operation (which incorrectly assumed the denominator was nonzero) into an integer, and resulted with a value of 0 which threw all kinds of things off.
+
+
+       Author: Chet Haase http://graphics-geek.blogspot.com
+  -->
+  
+</mx:Application>

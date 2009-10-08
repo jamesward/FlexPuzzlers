@@ -16,7 +16,8 @@
 
        <mx:Label text="# items = {srv.lastResult.item.length}" creationComplete="srv.send()"/>
 
-       The Label displays "# items = 2".  What does the Label display when only one item is in the XML data?
+       The Label displays "# items = 2".  What does the Label display when only one item is
+       in the XML data?
 
        A) # items = undefined
 
@@ -28,7 +29,8 @@
 
 
        Answer: A
-       Reason: By default XML is only converted to Arrays when there is more than one repeated node.  Otherwise the item is just an Object.
+       Reason: By default XML is only converted to Arrays when there is more than one repeated
+       node.  Otherwise the item is just an Object.
 
        Author: James Ward (www.jamesward.com)
   -->
