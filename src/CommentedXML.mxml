@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	<fx:Script>
+		<![CDATA[
+			
+			var data:XML = 	<family>
+								<person first="Brian" last="Genisio" />
+								<person first="Cara" last="Genisio" />
+				
+								// <person first="Maia" last="Genisio" />
+								// <person first="Eli" last="Genisio" />
+							</family>;
+			
+		]]>
+	</fx:Script>
+	
+	<s:List labelField="@first">
+		<s:dataProvider>
+			<s:XMLListCollection>{data.person}</s:XMLListCollection>
+		</s:dataProvider>
+	</s:List>
+	
+	<!--
+	What does the list visualize for the following code:
+	
+	<fx:Script>
+	<![CDATA[
+	
+	var data:XML = 	<family>
+						<person first="Brian" last="Genisio" />
+						<person first="Cara" last="Genisio" />
+	
+						// <person first="Maia" last="Genisio" />
+						// <person first="Eli" last="Genisio" />
+					</family>;
+	
+	]]>
+	</fx:Script>
+	
+	<s:List labelField="@first">
+		<s:dataProvider>
+			<s:XMLListCollection>{data.person}</s:XMLListCollection>
+		</s:dataProvider>
+	</s:List>
+	
+	A)
+	Four items: "Brian", "Cara", "Maia", "Eli"
+	
+	B)
+	Two items: "Object", "Object"
+	
+	C)
+	Two items: "Brian", "Cara"
+	
+	D) 
+	Compile error
+	
+	
+	Answer: A
+	Reason: Inside of XML literals, the compiler allows but ignores AS3 comments (both line and block-stile).  The syntaxy hightlighter in FlashBuilder shows the code commented out, however. To properly comment out XML literals, you must use propper XML commenting tags.
+	
+	Author: Brian Genisio (www.houseofbilz.com)
+	-->
+</s:Application>
