@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Script>
+		public function test():* {
+			return
+					"testing";
+		}
+	</mx:Script>
+	
+	<mx:applicationComplete>
+		trace(test());
+	</mx:applicationComplete>
+	
+	<!--
+	Given the following function:
+	
+	public function test():* {
+		return
+				"testing";
+	}
+	
+	
+	What is the output from this code:
+	trace(test());
+	
+	A)
+	"testing"
+	
+	B)
+	"undefined"
+	
+	C) Runtime error
+	
+	D) Compile error
+	
+	
+	Answer: B
+	Reason: ActionScript uses implicit semicolons.  It is inserting a semicolon immediately after the return statement.
+	
+	Author: Brian Genisio (www.HouseOfBilz.com)
+	-->
+</mx:Application>
