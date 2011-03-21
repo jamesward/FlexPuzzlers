@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+  <s:applicationComplete>
+    var n1:Number = 0.1;
+    var n2:Number = 1.0;
+
+    trace(typeof(n1), typeof(n2));
+
+    trace(n1 is Number, n2 is Number);
+
+    trace(n1 is uint, n2 is uint);
+  </s:applicationComplete>
+
+    <!--
+       What is the output for the following code:
+       var n1:Number = 0.1;
+       var n2:Number = 1.0;
+
+       trace(typeof(n1), typeof(n2));
+
+       trace(n1 is Number, n2 is Number);
+
+       trace(n1 is uint, n2 is uint);
+
+
+       A)
+       number number
+       true true
+       false false
+
+       B)
+       number number
+       true true
+       false true
+
+       C)
+       number number
+       true true
+       true true
+
+       D) Runtime Error
+
+
+       Answer: B
+       Reason: An object typed as a Number that is a valid uint is a uint
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</s:Application>

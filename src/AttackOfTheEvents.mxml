@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark">
+
+  <s:applicationComplete>
+    addEventListener("customEvent", function(event:CustomEvent):void {
+      trace(event.type);
+    });
+
+    var customEventDispatcher:CustomEventDispatcher = new CustomEventDispatcher();
+    customEventDispatcher.addEventListener("customEvent", function(event:CustomEvent):void {
+      dispatchEvent(event);
+    });
+
+    customEventDispatcher.dispatchCustomEvent();
+  </s:applicationComplete>
+
+  <!--
+      Given a custom event:
+      public class CustomEvent extends Event {
+        public function CustomEvent(type:String) {
+          super(type);
+        }
+      }
+
+      And a class that dispatches the event:
+      [Event(name="customEvent", type="CustomEvent")]
+      public class CustomEventDispatcher extends EventDispatcher {
+        public function dispatchCustomEvent():void {
+         dispatchEvent(new CustomEvent("customEvent"));
+        }
+      }
+
+      What is the output of the following code:
+      addEventListener("customEvent", function(event:CustomEvent):void {
+        trace(event.type);
+      });
+
+      var customEventDispatcher:CustomEventDispatcher = new CustomEventDispatcher();
+      customEventDispatcher.addEventListener("customEvent", function(event:CustomEvent):void {
+        dispatchEvent(event);
+      });
+
+      customEventDispatcher.dispatchCustomEvent();
+
+
+       A) customEvent
+
+       B) null
+
+       C) Compile Error
+
+       D) Runtime Error
+
+
+       Answer: D
+       Reason: Redispatching events causes them to be cloned internally by Flash Player.  If the custom event does not override clone() and return
+       the correct type, then Flash Player encounters a "Type Coercion failed" error when attempting to dispatch an event of type Event when it
+       expected to dispatch an event of type CustomEvent.
+
+       Author: James Ward (www.jamesward.com)
+  -->
+
+</s:Application>
